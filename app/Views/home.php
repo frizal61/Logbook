@@ -41,40 +41,56 @@
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="tanggal">Tanggal</label>
-                            <input type="date" class="form-control" id="tanggal" name="tanggal" style="width: 250px;">
+                            <input type="date" class="form-control <?= (validation_show_error('tanggal')) ? 'is-invalid' : ''; ?>" id="tanggal" name="tanggal" style="width: 250px;">
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('tanggal'); ?>
+                            </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="kegiatan">Nama Kegiatan</label>
-                            <input type="text" class="form-control" id="kegiatan" name="kegiatan" placeholder="Nama Kegiatan">
+                            <input type="text" class="form-control <?= (validation_show_error('kegiatan')) ? 'is-invalid' : ''; ?>" id="kegiatan" name="kegiatan" placeholder="Nama Kegiatan">
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('kegiatan'); ?>
+                            </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="perbaikan">Jenis Perbaikan</label>
                             <br>
-                            <select class="custom-select custom-select-sm" style="height: 50px;" id="perbaikan" name="perbaikan">
+                            <select class="custom-select custom-select-sm <?= (validation_show_error('perbaikan')) ? 'is-invalid' : ''; ?>" style="height: 50px;" id="perbaikan" name="perbaikan">
                                 <option selected value="">Jenis Perbaikan</option>
                                 <option>HARDWARE</option>
                                 <option>SOFTWARE</option>
                                 <option>JARINGAN</option>
                             </select>
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('perbaikan'); ?>
+                            </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="ruangan">Nama Ruangan</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="ruangan" name="ruangan" placeholder="Nama Ruangan">
+                            <input type="text" class="form-control <?= (validation_show_error('ruangan')) ? 'is-invalid' : ''; ?>" id="ruangan" name="ruangan" placeholder="Nama Ruangan">
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('ruangan'); ?>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="langkah">Langkah Perbaikan</label>
-                            <textarea class="form-control" id="langkah" name="langkah" placeholder="Langkah Perbaikan" rows="3"></textarea>
+                            <textarea class="form-control <?= (validation_show_error('langkah')) ? 'is-invalid' : ''; ?>" id="langkah" name="langkah" placeholder="Langkah Perbaikan" rows="3"></textarea>
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('langkah'); ?>
+                            </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="hasil">Hasil </label>
                             <br>
-                            <select class="custom-select custom-select-sm" id="hasil" name="hasil" style="height: 40px;">
+                            <select class="custom-select custom-select-sm <?= (validation_show_error('hasil')) ? 'is-invalid' : ''; ?>" id="hasil" name="hasil" style="height: 40px;">
                                 <option selected value="">Hasil</option>
                                 <option>Selesai</option>
                                 <option>Tidak Selesai</option>
                             </select>
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('hasil'); ?>
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -104,15 +120,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                        </tr>
+                        <?php $i = 0;
+                        foreach ($perbaikan as $a) :
+                            $i = $i + 1; ?>
+                            <tr>
+                                <th scope="row"><?= $i ?></th>
+                                <th scope="row"><?= $a['Kegiatan'] ?></th>
+                                <th scope="row"><?= $a['Jenis_Perbaikan'] ?></th>
+                                <th scope="row"><?= $a['Nama_Ruangan'] ?></th>
+                                <th scope="row"><?= $a['Langkah_Perbaikan'] ?></th>
+                                <th scope="row"><?= $a['Hasil'] ?></th>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

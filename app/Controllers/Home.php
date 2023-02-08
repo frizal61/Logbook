@@ -16,8 +16,9 @@ class Home extends BaseController
 
     public function index()
     {
+        $perbaikan = $this->formmodel->findAll();
         $data = [
-            'error' => validation_errors()
+            'perbaikan' => $perbaikan
         ];
         return view('home', $data);
     }
@@ -71,16 +72,10 @@ class Home extends BaseController
             'Tanggal' => $this->request->getVar('tanggal'),
             'Kegiatan' => $this->request->getVar('kegiatan'),
             'Jenis_Perbaikan' => $this->request->getVar('perbaikan'),
-            'Permasalahan' => $this->request->getVar('langkah'),
+            'Langkah_Perbaikan' => $this->request->getVar('langkah'),
             'Nama_Ruangan' => $this->request->getVar('ruangan'),
             'Hasil' => $this->request->getVar('hasil'),
         ]);
         return redirect()->to('/');
-    }
-    public function coba()
-    {
-
-        $validation = \Config\Services::validation();
-        dd($validation);
     }
 }
