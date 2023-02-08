@@ -37,6 +37,7 @@
             <div class="form-section-content">
                 <h2 class="mb-3">INSERT</h2>
                 <form action="/save" method="POST">
+                    <?= csrf_field(); ?>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="tanggal">Tanggal</label>
