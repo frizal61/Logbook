@@ -10,12 +10,8 @@ class FormModel extends Model
     protected $primaryKey = 'id_history';
     protected $allowedFields = ['Tanggal', 'Kegiatan', 'Jenis_Perbaikan', 'Langkah_Perbaikan', 'Nama_Ruangan', 'Hasil'];
 
-    public function getdata($search = false)
+    public function getdata($search)
     {
-        if ($search == false) {
-            return $this->findAll();
-        }
-
         return $this->where(['Kegiatan' => $search])->findAll();
     }
 }

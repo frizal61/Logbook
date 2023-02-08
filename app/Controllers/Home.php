@@ -18,8 +18,16 @@ class Home extends BaseController
     {
 
         $search = $this->request->getVar('search');
+        if ($search) {
+            $perbaikan = $this->formmodel->getdata($search);
+        } else {
+            $perbaikan = $this->formmodel;
+        }
+
+
         $data = [
-            'perbaikan' => $this->formmodel->getdata($search)
+            'perbaikan' => $perbaikan->paginate(10, 'history'),
+            'pager' => $this->formmodel->pager
         ];
         return view('home', $data);
     }

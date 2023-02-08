@@ -5,7 +5,7 @@
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <a class="navbar-brand js-scroll-trigger" href="<?= base_url() ?>">
             <span class="d-block d-lg-none"></span>
             <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<?= base_url('images/it.png') ?>" alt="..." /></span>
         </a>
@@ -105,7 +105,7 @@
         <section class="resume-section" id="education">
             <div class="resume-section-content">
                 <h2 class="mb-5">HISTORY</h2>
-                <form action="/" method="GET">
+                <form action="" method="GET">
                     <input type="text" id="search" name="search" placeholder="Search" style="height: 40px;">
                     <button class="btn btn-primary" type="submit" style="height: 40px;">SUBMIT</button>
                 </form>
@@ -137,6 +137,7 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <?= $pager->links('history', 'main_pagination'); ?>
             </div>
         </section>
         <hr class="m-0" />
