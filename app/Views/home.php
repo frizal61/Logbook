@@ -105,7 +105,10 @@
         <section class="resume-section" id="education">
             <div class="resume-section-content">
                 <h2 class="mb-5">HISTORY</h2>
-                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                <form action="/" method="GET">
+                    <input type="text" id="search" name="search" placeholder="Search" style="height: 40px;">
+                    <button class="btn btn-primary" type="submit" style="height: 40px;">SUBMIT</button>
+                </form>
                 <br>
 
                 <table class="table table-bordered">

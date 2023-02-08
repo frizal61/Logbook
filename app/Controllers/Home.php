@@ -16,9 +16,10 @@ class Home extends BaseController
 
     public function index()
     {
-        $perbaikan = $this->formmodel->findAll();
+
+        $search = $this->request->getVar('search');
         $data = [
-            'perbaikan' => $perbaikan
+            'perbaikan' => $this->formmodel->getdata($search)
         ];
         return view('home', $data);
     }
